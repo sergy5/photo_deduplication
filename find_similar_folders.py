@@ -35,7 +35,7 @@ def main(args):
                 if intersection:
                     dir_with_same_files.append([dir, len(dir_lists[dir]), 
                                                 dir2, len(dir_lists[dir2]), 
-                                                len(intersection), list(intersection)])
+                                                len(intersection), sorted(list(intersection))])
     
     # drop duplicates
 
