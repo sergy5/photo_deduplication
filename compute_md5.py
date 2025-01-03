@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import sys
 import os
 from argparse import ArgumentParser
@@ -37,9 +39,6 @@ def main(args):
     print('save md5 to file')
     with open(args.result_file, 'w') as f_out:
         f_out.writelines(list(map(lambda x: f'{x[0]}\t{x[1]}\n', results)))
-
-    
-    
 
 
 if __name__ == '__main__':

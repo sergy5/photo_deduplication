@@ -1,4 +1,4 @@
-## remove only files from bigger directories
+#!/usr/bin/env python
 
 import os
 from argparse import ArgumentParser
@@ -6,7 +6,6 @@ from collections import defaultdict
 import json
 import logging
 import shutil
-import sys
 
 from tqdm.auto import tqdm
 

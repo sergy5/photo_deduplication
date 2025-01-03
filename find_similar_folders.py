@@ -1,16 +1,14 @@
-import sys
+#!/usr/bin/env python
+
 import os
 from argparse import ArgumentParser
-from multiprocessing import Pool
 from collections import defaultdict
 
 from tqdm.auto import tqdm
 
 
-
 def init_args():
     parser = ArgumentParser()
-    parser.add_argument('--num_threads', type=int, default=10)
     parser.add_argument('md5_list', type=str)
     parser.add_argument('result_file', type=str)
     return parser
