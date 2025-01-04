@@ -44,7 +44,6 @@ def main(args):
             if len_dir1 == len_dir2:
                 logging.warning(f'equal dirs:\t{dir1}\t{dir2}')
             biggest_dir, smallest_dir = (dir1,dir2) if int(len_dir1) > int(len_dir2) else (dir2,dir1)
-            logging.warning(f'big={biggest_dir} small={smallest_dir}')
             # 2. check that files in smaller dir all exist (smaller dir, file_list, cache_md5)
             ok = True
             for md5 in json.loads(filelist_str.replace("'", '"')):
@@ -68,13 +67,13 @@ def main(args):
                 if os.path.isfile(filename):
                     filename_thrash = os.path.join(thrash_dir, os.path.splitdrive(filename)[1].lstrip('/'))
             
-                    logging.warning(f'move {filename} to {filename_thrash}')
+                    logging.info(f'move {filename} to {filename_thrash}')
                     if not os.path.isdir(os.path.dirname(filename_thrash)):
                         os.makedirs(os.path.dirname(filename_thrash))
                     shutil.move(filename, filename_thrash)
 
     
 if __name__ == '__main__':
-    logging.basicConfig(format='%(asctime)s %(levelname)s %(message)s')
+    logging.basicConfig(format='%(asctime)s %(levelname)s %(message)s', level='INFO')
     args = init_args().parse_args()
     main(args)
