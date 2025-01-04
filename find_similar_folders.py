@@ -46,7 +46,7 @@ def main(args):
             dir_with_same_files_dedup.append(line)
 
 
-    dir_with_same_files_dedup = sorted(dir_with_same_files_dedup, key=lambda x: x[4], reverse=True)
+    dir_with_same_files_dedup = sorted(dir_with_same_files_dedup, key=lambda x: max(x[1],x[3]), reverse=True)
     
     # 3. save result to file
     with open(args.result_file, 'w') as f_out:
