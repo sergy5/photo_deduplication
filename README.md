@@ -13,15 +13,18 @@ pip install -r requirements.txt
 
 ```bash
 # Создание кэша файлов в заданной папке
-python compute_md5.py --num_threads 1 /d/Фото /d/Фото/cache_md5.txt
+python -X utf8 compute_md5.py --num_threads 1 /d/Фото /d/Фото/cache_md5.txt # если уже есть кэш, то вычисляется только для новых файлов
+
+# Очистка кэша  от удаленных файлов
+python -X utf8 clear_cache.py /d/Фото/cache_md5.txt
 
 # Преобразовать /d/Фото/cache_md5.txt в utf-8 при необходимости
 
 # Поиск файлов с одинаковыми файлами, подсчет их количества
-python -X utf8 find_similar_folders.py /d/Фото/cache_md5.txt similar_folders_list.txt 
+python -X utf8 find_similar_folders.py /d/Фото/cache_md5.txt /d/Фото/similar_folders_list.txt 
 
 # Перемещение одинаковых файлов в специальную корзину
-python -X utf8 ./remove_duplicates.py similar_folders_list.txt /d/Фото/cache_md5.txt
+python -X utf8 ./remove_duplicates.py /d/Фото/similar_folders_list.txt /d/Фото/cache_md5.txt
 ```
 
 ## Лицензия
